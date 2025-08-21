@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'dart:convert' as convert;
+import 'package:http/http.dart' as http;
 import 'question.dart';
 
 import 'questionarray.dart';
@@ -120,7 +122,42 @@ class _MyQuizState extends State<MyQuiz> {
             ),
           ),
         ),
-        Row(children: scores),
+        SizedBox(height: 10),
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.red,
+                minimumSize: const Size.fromHeight(50),
+              ),
+              child: const Text(
+                ' click',
+                style: TextStyle(fontSize: 20.0, color: Colors.white),
+              ),
+              onPressed: () async {
+                //https://sundarampal.github.io/myjsonfiles/truefalsequestions.json
+                final url = Uri.https(
+                  "sundarampal.github.io",
+                  "/myjsonfiles/truefalsequestions.json",
+                );
+                try {
+                  final response = await http.get(url);
+                  final jsonResponse = convert.jsonDecode(response.body);
+                  print(jsonResponse.length);
+                  print(jsonResponse);
+                  setState(() {});
+                } catch (ex) {
+                  print(ex);
+                  setState(() {});
+                }
+
+                print("Sundram ");
+                setState(() {});
+              },
+            ),
+          ),
+        ),
       ],
     );
   }
