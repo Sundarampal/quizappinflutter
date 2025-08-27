@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quizappinflutter/myquiz.dart';
+import 'package:quizappinflutter/subjectarray.dart';
 
 class MyQuizStart extends StatelessWidget {
   @override
@@ -28,11 +29,13 @@ class MyQuizStart extends StatelessWidget {
             body: SafeArea(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                child: MyQuiz(),
+                // child: MyQuiz(),
+                child: Column(children: SubjectArray.buttons,),
               ),
             ),
           ),
         ),
+
       ),
     );
   }
