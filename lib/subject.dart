@@ -2,7 +2,8 @@ class Subject {
 
 
   String subjectname;
-  String subjecturl;
-  Subject(this.subjectname, this.subjecturl);
+  String url1;
+  String url2;
+  Subject(this.subjectname, this.url1,this.url2);
 
 }

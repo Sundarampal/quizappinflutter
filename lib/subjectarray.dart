@@ -20,14 +20,16 @@ static List<ElevatedButton> buttons=[];
       // print(a);
       for (int i = 0; i <= n - 1; i++) {
         String subjectname = a[i]["quizname"].toString();
-        String subjecturl = a[i]["quizurl"].toString();
+        String url1 = a[i]["url1"].toString();
+        String url2 = a[i]["url2"].toString();
         print(subjectname);
-        print(subjecturl);
+        print(url1);
+            print(url2);
 
-        subjects.add(Subject(subjectname, subjecturl));
+        subjects.add(Subject(subjectname, url1,url2));
         buttons.add(ElevatedButton(onPressed: (){
 
-          print(subjecturl);
+          print(url1);
         }, child:  Text(subjectname,style: const TextStyle(fontSize: 25.0, color: Colors.black),)));
       }
       return "ok";
